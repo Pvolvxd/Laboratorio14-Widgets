@@ -17,6 +17,8 @@ import androidx.glance.layout.Row
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
 import androidx.glance.text.Text
+import com.karla.laboratorio14widgets.SecondActivity
+
 class SimpleWidgetContent : GlanceAppWidget() {
 
     override suspend fun provideGlance(
@@ -46,13 +48,18 @@ class SimpleWidgetContent : GlanceAppWidget() {
                 modifier = GlanceModifier.padding(12.dp)
             )
 
-            Row(
-                horizontalAlignment = Alignment.CenterHorizontally
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = GlanceModifier.padding(8.dp)
             ) {
-
                 Button(
                     text = "Página Principal",
                     onClick = actionStartActivity<MainActivity>()
+                )
+                Text(text = " ", modifier = GlanceModifier.padding(4.dp)) // espaciador
+                Button(
+                    text = "Segunda Vista",
+                    onClick = actionStartActivity<SecondActivity>()
                 )
             }
         }
